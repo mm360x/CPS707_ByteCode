@@ -10,7 +10,7 @@ string user [MAX_USERS], type [MAX_USERS];
 int credit [MAX_USERS];
 int userNumber = 0;
 
-string login_checker(string username)
+string login_checker(string username)//searches for if a username matches an existing username
 {
   int jk = 0;
   while(jk < userNumber)
