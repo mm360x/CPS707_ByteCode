@@ -1,10 +1,14 @@
+//Group Name: Byte Code
+//Maitreya Meshram,  500792236
+//Sean Riddell, 500691642
+//Vivek Sehgal, 500753098
+
 #include <iostream>
 #include <string>
 #include <sstream>
 #include <fstream>
 #define MAX_USERS 100
 #define MAX_EVENT 1000
-//cd PC/Desktop/'NotesLabs 2019 Winter'/CPS707_Project/CPS707_ByteCode/
 using namespace std;
 ifstream inFile;
 ofstream outFile;
