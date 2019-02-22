@@ -429,7 +429,10 @@ string buy(int buyerID) //allows a buyer to buy tickets
     outFile.close();
     return "";
 }
-
+//so as soon as the program is run the currentUserAccounts file is read and it starts taking in commands after the welcome message
+//after the login command it asks the user to input a username found in the currentUserAccounts file and as soon as the user
+//enters the correct username they are taken to the main commands where they can perform transactions according to their priveledge
+//there is also a quit command added to stop execution which is conformed by the message "All done. Exiting..."
 int main() 
 {
   string input = "", temp = "", str = ""; //temporary variables
