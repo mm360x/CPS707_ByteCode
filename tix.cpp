@@ -8,14 +8,16 @@
 using namespace std;
 ifstream inFile;
 ofstream outFile;
+//arrays for the users information
 string user [MAX_USERS], type [MAX_USERS];
 int credit [MAX_USERS];
 int userNumber = 0;
+//arrays for the event information
 string event [MAX_EVENT], seller [MAX_EVENT];
 int numberTickets [MAX_EVENT], eventPrice [MAX_EVENT];
 int eventNumber = 0;
 
-string readAvalaibleTickets()
+string readAvalaibleTickets() //reads the available tickets from the available tickets file
 {
     //EEEEEEEEEEEEEEEEEEE_SSSSSSSSSSSSS_TTT_PPPPPP
     inFile.open("avaliableTicketsFile.txt");
@@ -35,7 +37,7 @@ string readAvalaibleTickets()
     }
     return "done";
 }
-int event_checker(string eventName)
+int event_checker(string eventName) //checks to see if an event already exists comparing the name
 {
     int jk = 0;
   while(jk < eventNumber)
@@ -48,7 +50,7 @@ int event_checker(string eventName)
   }
   return -1;
 }
-int login_checker(string username)//searches for if a username matches an existing username
+int login_checker(string username)//searches for if a username matches an existing username which is read from the currentUserAccounts.txt
 {
   int jk = 0;
   while(jk < userNumber)
@@ -61,7 +63,7 @@ int login_checker(string username)//searches for if a username matches an existi
   }
   return -1;
 }
-string logout(int userID)
+string logout(int userID) //writes to the daily transaction file the logouts of the session
 {
     //00_UUUUUUUUUUUUUUU_TT_CCCCCCCCC
     string newusername = user[userID], newusertype = type[userID];
@@ -186,7 +188,7 @@ string refund() //allows an admin to refund a transaction
     return "";
 }
 
-string deleteuser() //allows an admin to delete an old user
+string deleteuser() //allows an admin to delete a user
 {
     string deleteusername;
 	cout << "Enter the name of the user to be deleted\n";
@@ -302,7 +304,7 @@ string sell(int sellerID) //allows a seller to post offers
     int amountTicket, amountPrice;
 	cout << "Enter the name of the event for which you want to sell tickets\n";
     cin >> eventTitle;
-    if(eventTitle.length() > 19)
+    if(eventTitle.length() > 19) //it was stated as 25 characters but the daily transaction file output is only 19 characters so we chose 19 to be consistent with the buy transaction
     {
         cout << "Sorry, the event title you have entered exceeds the maximum number of characters(19), sell transaction cancelled" << endl;
         return "";
@@ -326,7 +328,7 @@ string sell(int sellerID) //allows a seller to post offers
     }
     cout << "Enter the price per ticket to sell (no more than the buying price)" << endl;
     cin >> amountPrice;
-    if(amountPrice > 999)
+    if(amountPrice > 999) 
     {
         cout << "Sorry, the maximum price per ticket cannot exceed 999$, selling transaction cancelled" << endl;
         return "";
