@@ -454,11 +454,13 @@ int main()
 
     inFile.close();
 
-    while(true && input != "quit")
+    while(input != "quit")
     {
         cout << "welcome to the ticket selling service!" << endl;
         //Testing the login command
-        cin >> input;
+        //cin >> input;
+		getline(cin, input);
+		if (input.empty()){cout << "\n ERROR EMPTY INPUT \n"; break;}
         if(input == "login" && !loggedIn )
         {
             cout << "Enter a username" << endl;
@@ -493,6 +495,7 @@ int main()
         {
             readAvalaibleTickets();
             cin >> input;
+			if (input.empty()){cout << "\n ERROR EMPTY INPUT \n"; break;}
 			if (input == "logout")
 			{
                 if(type[tempInt] == "AA")
