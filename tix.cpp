@@ -1,7 +1,4 @@
 //Group Name: Byte Code
-//Maitreya Meshram,  500792236
-//Sean Riddell, 500691642
-//Vivek Sehgal, 500753098
 
 #include <iostream>
 #include <string>
